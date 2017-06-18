@@ -21,3 +21,8 @@ To run this software, just use the executable located in 3.5 to Roll20\bin\Debug
 * Any other parsing ideas from roll20 variables!
 
 Because my party doesn't use the built in sheets we don't have variables so tough to get motivated for this :)
+
+#### Output example
+![Image](http://i.imgur.com/gNZfliK.png "Image")
+
+```&{template:DnD35StdRoll} {{spellflag=true}} {{subtags=casts Cat's Grace}} {{School:=Transmutation}} {{Level:=Bard 2, Druid 2, Ranger 2, Sorcerer/Wizard 2}} {{Components:=V, S, M}} {{Casting Time:=1 standard action}} {{Range:=Touch}} {{Target:=Creature touched}} {{Duration:=1 min./level}} {{Saving Throw:=Will negates (harmless)}} {{Spell Resist:=Yes}} {{Saving Throw:=Will negates (harmless)}} {{notes= The transmuted creature becomes more graceful, agile, and coordinated. The spell grants a +4 enhancement bonus to Dexterity, adding the usual benefits to AC, Reflex saves, and other uses of the Dexterity modifier.}}```
