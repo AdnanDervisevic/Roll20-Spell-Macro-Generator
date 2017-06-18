@@ -78,14 +78,14 @@ namespace _3._5_to_Roll20
             textBox.Text = SelectedSpellText;
             ClipboardButton.Background = Brushes.White;
         }
-        
+
         private void Clipboard_OnClick(object sender, RoutedEventArgs e)
         {
             if (SelectedSpellText != null)
                 Clipboard.SetText(SelectedSpellText);
             else
                 return;
-            
+
             ClipboardButton.Background = new SolidColorBrush(Colors.LightGreen);
         }
 
@@ -101,7 +101,7 @@ namespace _3._5_to_Roll20
                 + MacroSection($"Target:={SelectedSpell.Target}")
                 + MacroSection($"Duration:={SelectedSpell.Duration}")
                 + MacroSection($"Saving Throw:={SelectedSpell.SavingThrow}")
-                + MacroSection($"Spell Resist.:={SelectedSpell.SpellResistance}")
+                + MacroSection($"Spell Resist:={SelectedSpell.SpellResistance}")
                 + MacroSection($"Saving Throw:={SelectedSpell.SavingThrow}")
                 + MacroSection($"Effect:={SelectedSpell.Effect}")
                 + MacroSection($"XP Cost:={SelectedSpell.XpCost}")
@@ -110,7 +110,7 @@ namespace _3._5_to_Roll20
 
         private static string AddIfNotNull(string input)
         {
-            return IsStringNull(input) ? $" {input}" : "";
+            return IsStringNull(input) ? "" : $" {input}";
         }
 
         private static bool IsStringNull(string input)
@@ -126,7 +126,7 @@ namespace _3._5_to_Roll20
 
         private static string MacroSection(string input)
         {
-            return IsStringNull(input) ? $" {{{{{input}}}}}" : "";
+            return IsStringNull(input) ? "" : $" {{{{{input}}}}}";
         }
     }
 }
