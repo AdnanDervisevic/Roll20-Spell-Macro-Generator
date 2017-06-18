@@ -6,29 +6,37 @@ using System.Xml.Linq;
 namespace _3._5_to_Roll20
 {
     using System.Linq;
+    using System.Windows.Media;
     using System.Xml;
     using System.Xml.XPath;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class SpellConverter
     {
         private static readonly XDocument SpellXml = XDocument.Load("../../all-spells.xml");
 
         private readonly IEnumerable<XElement> spellElements = SpellXml.Elements().Elements("spell");
 
-        public MainWindow()
+        public SpellConverter()
         {
             Spells = ParseXml();
 
             InitializeComponent();
 
-
             SpellSource.ItemsSource = Spells;
             SpellSource.DisplayMemberPath = "Name";
+            SpellSource.IsEditable = false;
+
+            ClipboardButton.Background = Brushes.Salmon;
+            ConvertButton.Background = Brushes.White;
         }
 
+        public List<Spell> Spells { get; }
+
+        public string SelectedSpellText { get; set; }
+        
         private List<Spell> ParseXml()
         {
             var spellList = spellElements.Select(ParseSpells()).ToList();
@@ -53,14 +61,30 @@ namespace _3._5_to_Roll20
                                     Target = spell.XPathSelectElement("target")?.Value,
                                     XpCost = spell.XPathSelectElement("xp_cost")?.Value,
                                     MaterialComponents = spell.XPathSelectElement("material_components")?.Value,
+                                    School = spell.XPathSelectElement("school")?.Value,
+                                    Effect = spell.XPathSelectElement("effect")?.Value,
                                 };
         }
 
-        public List<Spell> Spells { get; }
-
         private void ConvertButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException(); // should eventually trigger the parsing to output
+
+            if (SpellSource.SelectedIndex != -1)
+                SelectedSpellText = $"{Spells[SpellSource.SelectedIndex].Description}";
+
+            textBox.Text = SelectedSpellText;
+            ClipboardButton.Background = Brushes.White;
+        }
+
+
+        private void Clipboard_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (SelectedSpellText != null)
+                Clipboard.SetText(SelectedSpellText);
+            else
+                return;
+            
+            ClipboardButton.Background = new SolidColorBrush(Colors.LightGreen);
         }
     }
 }

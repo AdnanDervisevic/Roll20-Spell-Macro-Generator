@@ -27,5 +27,9 @@
         public string XpCost { get; set; }
 
         public string MaterialComponents { get; set; }
+
+        public string School { get; set; }
+
+        public string Effect { get; set; }
     }
 }
