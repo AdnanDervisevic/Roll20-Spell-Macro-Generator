@@ -27,7 +27,7 @@ namespace _3._5_to_Roll20
             InitializeComponent();
 
             SpellSource.ItemsSource = Spells.OrderBy(e => e.Name);
-            SpellSource.DisplayMemberPath = "Name";
+            SpellSource.DisplayMemberPath = "DisplayString";
             SpellSource.IsEditable = false;
 
             ClipboardButton.Background = Brushes.Salmon;

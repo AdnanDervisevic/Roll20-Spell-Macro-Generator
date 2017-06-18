@@ -33,5 +33,7 @@
         public string Effect { get; set; }
 
         public string CastingTime { get; set; }
+
+        public string DisplayString => $"{Name} ({Level})";
     }
 }
