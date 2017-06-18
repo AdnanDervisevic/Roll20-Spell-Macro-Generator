@@ -26,7 +26,7 @@ namespace _3._5_to_Roll20
 
             InitializeComponent();
 
-            SpellSource.ItemsSource = Spells;
+            SpellSource.ItemsSource = Spells.OrderBy(e => e.Name);
             SpellSource.DisplayMemberPath = "Name";
             SpellSource.IsEditable = false;
 

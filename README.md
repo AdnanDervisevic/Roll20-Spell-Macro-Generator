@@ -1,5 +1,5 @@
 # 3.5 to Roll20
-Right now takes in XML file that I have and spits out a pretty generic SRD-looking spell macro! Nicer than nothing :)
+Right now takes in XML file from http://www.andargor.com/ (Huge thanks for publishing this) and spits out a pretty generic SRD-looking spell macro! Nicer than nothing :)
 
 
 Future improvements:
