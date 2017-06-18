@@ -120,7 +120,7 @@ namespace _3._5_to_Roll20
 
         private void SpellSource_OnSelected(object sender, RoutedEventArgs e)
         {
-            SelectedSpell = Spells[SpellSource.SelectedIndex];
+            SelectedSpell = (Spell) SpellSource.SelectedItem;
             ClipboardButton.Background = Brushes.White;
         }
 
