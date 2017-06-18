@@ -1,0 +1,1 @@
+﻿When completed this utility will take in a spells XML file and output a template formatted Roll20 macro
