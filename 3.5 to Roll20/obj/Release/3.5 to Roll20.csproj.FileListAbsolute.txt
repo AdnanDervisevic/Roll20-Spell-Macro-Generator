@@ -1,0 +1,13 @@
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\bin\Release\3.5 to Roll20.exe.config
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\bin\Release\3.5 to Roll20.exe
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\bin\Release\3.5 to Roll20.pdb
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\SpellConverter.g.cs
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\App.g.cs
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20_MarkupCompile.cache
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20_MarkupCompile.lref
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\SpellConverter.baml
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20.g.resources
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\_3._5_to_Roll20.Properties.Resources.resources
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20.csproj.GenerateResource.Cache
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20.exe
+c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Release\3.5 to Roll20.pdb

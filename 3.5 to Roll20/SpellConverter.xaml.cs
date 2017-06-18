@@ -18,6 +18,7 @@ namespace _3._5_to_Roll20
         private static readonly XDocument SpellXml = XDocument.Load("../../all-spells.xml");
 
         private readonly IEnumerable<XElement> spellElements = SpellXml.Elements().Elements("spell");
+        private const string Prefix = "&{template:DnD35StdRoll} {{spellflag=true}}";
 
         public SpellConverter()
         {
@@ -36,7 +37,9 @@ namespace _3._5_to_Roll20
         public List<Spell> Spells { get; }
 
         public string SelectedSpellText { get; set; }
-        
+
+        public Spell SelectedSpell { get; set; }
+
         private List<Spell> ParseXml()
         {
             var spellList = spellElements.Select(ParseSpells()).ToList();
@@ -63,20 +66,19 @@ namespace _3._5_to_Roll20
                                     MaterialComponents = spell.XPathSelectElement("material_components")?.Value,
                                     School = spell.XPathSelectElement("school")?.Value,
                                     Effect = spell.XPathSelectElement("effect")?.Value,
+                                    CastingTime = spell.XPathSelectElement("casting_time")?.Value,
                                 };
         }
 
         private void ConvertButton_OnClick(object sender, RoutedEventArgs e)
         {
-
             if (SpellSource.SelectedIndex != -1)
-                SelectedSpellText = $"{Spells[SpellSource.SelectedIndex].Description}";
+                SelectedSpellText = CraftRoll20Macro();
 
             textBox.Text = SelectedSpellText;
             ClipboardButton.Background = Brushes.White;
         }
-
-
+        
         private void Clipboard_OnClick(object sender, RoutedEventArgs e)
         {
             if (SelectedSpellText != null)
@@ -85,6 +87,46 @@ namespace _3._5_to_Roll20
                 return;
             
             ClipboardButton.Background = new SolidColorBrush(Colors.LightGreen);
+        }
+
+        private string CraftRoll20Macro()
+        {
+            return Prefix
+                + MacroSection($"subtags=casts {SelectedSpell.Name}")
+                + MacroSection($"School:={SelectedSpell.School}") + AddIfNotNull($"Descriptor:={SelectedSpell.Descriptor}")
+                + MacroSection($"Level:={SelectedSpell.Level}")
+                + MacroSection($"Components:={SelectedSpell.Components}")
+                + MacroSection($"Casting Time:={SelectedSpell.CastingTime}")
+                + MacroSection($"Range:={SelectedSpell.Range}")
+                + MacroSection($"Target:={SelectedSpell.Target}")
+                + MacroSection($"Duration:={SelectedSpell.Duration}")
+                + MacroSection($"Saving Throw:={SelectedSpell.SavingThrow}")
+                + MacroSection($"Spell Resist.:={SelectedSpell.SpellResistance}")
+                + MacroSection($"Saving Throw:={SelectedSpell.SavingThrow}")
+                + MacroSection($"Effect:={SelectedSpell.Effect}")
+                + MacroSection($"XP Cost:={SelectedSpell.XpCost}")
+                + MacroSection($"notes= {SelectedSpell.Description}");
+        }
+
+        private static string AddIfNotNull(string input)
+        {
+            return IsStringNull(input) ? $" {input}" : "";
+        }
+
+        private static bool IsStringNull(string input)
+        {
+            return input.Substring(input.IndexOf("=", StringComparison.Ordinal)).Length > 0;
+        }
+
+        private void SpellSource_OnSelected(object sender, RoutedEventArgs e)
+        {
+            SelectedSpell = Spells[SpellSource.SelectedIndex];
+            ClipboardButton.Background = Brushes.White;
+        }
+
+        private static string MacroSection(string input)
+        {
+            return IsStringNull(input) ? $" {{{{{input}}}}}" : "";
         }
     }
 }

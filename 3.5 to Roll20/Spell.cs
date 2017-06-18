@@ -31,5 +31,7 @@
         public string School { get; set; }
 
         public string Effect { get; set; }
+
+        public string CastingTime { get; set; }
     }
 }
