@@ -115,7 +115,7 @@ namespace _3._5_to_Roll20
 
         private static bool IsStringNull(string input)
         {
-            return input.Substring(input.IndexOf("=", StringComparison.Ordinal)).Length > 0;
+            return input.Substring(input.IndexOf("=", StringComparison.Ordinal)).Length <= 1;
         }
 
         private void SpellSource_OnSelected(object sender, RoutedEventArgs e)
