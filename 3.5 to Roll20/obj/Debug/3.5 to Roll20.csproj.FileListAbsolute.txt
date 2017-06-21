@@ -9,6 +9,5 @@ c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20
 c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\3.5 to Roll20.csproj.GenerateResource.Cache
 c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\3.5 to Roll20.exe
 c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\3.5 to Roll20.pdb
-c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\3.5 to Roll20_MarkupCompile.lref
 c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\SpellConverter.g.cs
 c:\users\darth\documents\visual studio 2017\Projects\3.5 to Roll20\3.5 to Roll20\obj\Debug\SpellConverter.baml

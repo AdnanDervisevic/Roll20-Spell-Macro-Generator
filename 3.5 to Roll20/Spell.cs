@@ -34,8 +34,13 @@
 
         public string CastingTime { get; set; }
 
-        public string DisplayString => $"{Name} ({Level})";
+        public string DisplayString => $"{Name}" + AddLevelIfExists(Level);
 
         public ClassInformation ClassInformation { get; set; }
+
+        private static string AddLevelIfExists(string level)
+        {
+            return string.IsNullOrEmpty(level) ? "" : $" ({level})";
+        }
     }
 }

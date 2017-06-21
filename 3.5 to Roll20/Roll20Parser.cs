@@ -8,8 +8,6 @@
 
     public class Roll20Parser
     {
-        public Roll20Parser() { }
-
         public List<Spell> ParseXml(IEnumerable<XElement> spellElements)
         {
             var spellList = spellElements.Select(ParseSpells()).ToList();
@@ -34,10 +32,10 @@
         public List<SpellClass> GetAvailableSpellClasses(IEnumerable<Spell> spells)
         {
             return spells
-                .Select(e => e.ClassInformation.SpellClass)
-                .GroupBy(e => e)
-                .Select(e => e.First())
-                .ToList();
+                    .Select(e => e.ClassInformation.SpellClass)
+                    .GroupBy(e => e)
+                    .Select(e => e.First())
+                    .ToList();
         }
 
         public static ClassInformation ParseLevelAndClass(string levelInformation)
@@ -49,15 +47,14 @@
 
             var levelAndClasses = levelInformation.Split(',');
 
-            return levelAndClasses.Select(levelAndClass =>
-                    levelAndClass
-                        .Split(' '))
-                .Select(temp =>
-                    new ClassInformation
-                        {
-                            SpellClass = GetSpellClass(temp),
-                            Level = int.Parse(temp[1])
-                        }).FirstOrDefault();
+            return levelAndClasses.Select(levelAndClass => levelAndClass
+                                    .Split(' '))
+                                    .Select(temp =>
+                                    new ClassInformation
+                                    {
+                                        SpellClass = GetSpellClass(temp),
+                                        Level = int.Parse(temp[1])
+                                    }).FirstOrDefault();
         }
 
         public static SpellClass GetSpellClass(IReadOnlyList<string> temp)

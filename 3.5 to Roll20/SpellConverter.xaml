@@ -3,18 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_3._5_to_Roll20" x:Class="_3._5_to_Roll20.SpellConverter"
+        x:Class="_3._5_to_Roll20.SpellConverter"
         mc:Ignorable="d"
-        Title="Dungeons and Dragons 3.5 Spells to Roll20 macros" Height="Auto" MaxHeight="600px" Width="525"
-        d:DataContext="{d:DesignData ''}">
+        Title="Dungeons and Dragons 3.5 Spells to Roll20 macros" Height="Auto" MaxHeight="600px" Width="445.5"
+        d:DataContext="{d:DesignData ''}" Background="White">
     <Grid Margin="40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="359*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="SpellSource" SelectionChanged="SpellSource_OnSelected" SelectedItem="{Binding SelectedSpell, Mode=TwoWay}" HorizontalAlignment="Left" ItemsSource="{Binding Spells, Mode=OneTime}" Margin="37.093,42,0,0" VerticalAlignment="Top" Width="312" DisplayMemberPath="Name" Grid.Column="1" />
-        <Button x:Name="ConvertButton" Content="Convert" Click="ConvertButton_OnClick" HorizontalAlignment="Left" Margin="274.093,79,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-        <TextBox x:Name="textBox" BorderThickness="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="{Binding SelectedSpell}" VerticalAlignment="Top" Height="Auto" Width="331"/>
-        <Button x:Name="ClipboardButton" Content="Add to clipboard" Click="Clipboard_OnClick" HorizontalAlignment="Left" Margin="152,79,0,0" VerticalAlignment="Top" Width="108" Grid.Column="1"/>
+        <ComboBox x:Name="SpellSource" SelectionChanged="SpellSourceSelectionChanged" SelectedItem="{Binding SelectedSpell, Mode=TwoWay}" HorizontalAlignment="Left" ItemsSource="{Binding Spells, Mode=OneWayToSource}" Margin="19,1,0,0" VerticalAlignment="Top" Width="312" DisplayMemberPath="Name" Grid.ColumnSpan="2" />
+        <Button x:Name="ConvertButton" Content="Convert" Click="ConvertButton_OnClick" HorizontalAlignment="Left" Margin="174,28,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+        <TextBox x:Name="textBox" BorderThickness="0" HorizontalAlignment="Left" Margin="0,186,0,0" TextWrapping="Wrap" Text="{Binding SelectedSpell}" VerticalAlignment="Top" Height="Auto" Width="331" Grid.ColumnSpan="2"/>
+        <Button x:Name="ClipboardButton" Content="Add to clipboard" Click="Clipboard_OnClick" HorizontalAlignment="Left" Margin="61,28,0,0" VerticalAlignment="Top" Width="108" Grid.Column="1"/>
+        <ComboBox x:Name="SpellClassCombobox" ItemsSource="{Binding AvailableSpellClasses, Mode=OneTime}" SelectedItem="{Binding SelectedSpellClass, Mode=TwoWay}" HorizontalAlignment="Left" Margin="19,118,0,0" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
+        <ComboBox Grid.Column="1" x:Name="LowerLevelCombobox" SelectedItem="{Binding LowerLevel, Mode=TwoWay}" HorizontalAlignment="Left" Margin="152,118,0,0" VerticalAlignment="Top" Width="40" SelectionChanged="LowerLevelComboboxSelectionChanged"/>
+        <ComboBox Grid.Column="1" x:Name="UpperLevelCombobox" SelectedItem="{Binding UpperLevel, Mode=TwoWay}" HorizontalAlignment="Left" Margin="208,118,0,0" VerticalAlignment="Top" Width="41" SelectionChanged="UpperLevelComboboxSelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" Grid.ColumnSpan="2" Width="312"><Run Text="Filter"/><Run Text="s"/><Run Text=" - broken right now"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="19,94,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.547,0.752"/>
+        <GridSplitter Background="Black" HorizontalAlignment="Left" Height="2" Margin="19,87,0,0" VerticalAlignment="Top" Width="322" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="163,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.547,0.752" Height="19"><Run Text="Level-range"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="163,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.547,0.752" Height="19"><Run Text="Level-range"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="197,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.547,0.752" Height="19" Text="-"/>
+        <Button x:Name="Filter" Content="Apply Filter" Click="Filter_OnClick" HorizontalAlignment="Left" Margin="174,161,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
     </Grid>
 </Window>
