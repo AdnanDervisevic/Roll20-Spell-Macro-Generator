@@ -35,5 +35,7 @@
         public string CastingTime { get; set; }
 
         public string DisplayString => $"{Name} ({Level})";
+
+        public ClassInformation ClassInformation { get; set; }
     }
 }

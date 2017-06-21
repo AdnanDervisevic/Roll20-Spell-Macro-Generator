@@ -54,6 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassInformation.cs" />
+    <Compile Include="Roll20Parser.cs" />
     <Compile Include="Spell.cs" />
     <Page Include="SpellConverter.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -63,6 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SpellClass.cs" />
     <Compile Include="SpellConverter.xaml.cs">
       <DependentUpon>SpellConverter.xaml</DependentUpon>
       <SubType>Code</SubType>
